@@ -25,7 +25,6 @@ def reset_item_hits(threshold_list):
 import random
 import statistics
 import numpy
-import time
 
 print ('\r\n Melvor Idle drop probability calculator\r\n')
 print ('Starting the simulation with the parameters in the source file:')

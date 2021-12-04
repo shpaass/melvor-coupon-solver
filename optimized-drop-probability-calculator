@@ -1,4 +1,5 @@
 # The version where I optimize the item checks.
+# The runtime is 3.5s compared to 10s of the unoptimized version. Can make a difference if more than 100k trials.
 
 def generate_thresholds(desired_items):
     threshold_list = []

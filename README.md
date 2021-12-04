@@ -1,7 +1,19 @@
 # Melvor Monte Carlo
-1. Open the file with an editor.  
-2. Edit `probability_base`, `desired_items`, and `number_of_trials`.
-3. Launch the file with python.
-4. Receive the number of clears to get all desired items.
+The file can be launched with or without command line arguments.
 
-The author expresses many thanks to Benjamin#5349 for the help with testing and bug fixing.
+Arguments:
+
+`-p, --probability-base` - On [wiki](https://wiki.melvoridle.com/w/Main_Page), the chance is shown as a fraction and as a percentage. The bottom number of the fraction is what needs to be entered here.
+
+`-d, --desired-items` - The upper numbers of drop chances for the desired items. For instance, on wiki the chance can be 20/837. 20 is what you need to put here. Make the denominators of all desired items equal to probability_base before putting the numbers here.
+
+`-n, --number-of-trials` - Number of complete item sets to acquire. Default is 10000.
+
+Examples of launches:
+```
+python coupon-solver.py
+python coupon-solver.py -n 100000
+python coupon-solver.py -d 3 3 2 2 -p 723
+```
+
+Initial draft by vbion. Testing and wrapping by Benjamin#5349.

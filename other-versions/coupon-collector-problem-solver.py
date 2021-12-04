@@ -1,3 +1,6 @@
+# This version is much faster, but can provide only the average number, no medians or quartiles.
+# Use it if you need a rough estimate of a thing that takes forever with other files, 
+#  or if you need to check whether the output of other versions was correct.
 # The version where I solve the coupon collector problem as if only the desired items can drop.
 # The probability ratios are saved. The sum of probabilities for the desired items is 1.
 # After I get data on this problem, I multiply it by how many tries on average it would take 

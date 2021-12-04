@@ -1,15 +1,13 @@
+# The version where I don't optimize the item check. 
+# Each roll goes linearly through the list of desired items until it fits or the list runs out.
+
 def generate_thresholds(desired_items):
     threshold_list = []
     counter = 0
     
     for i in desired_items:
         counter += i
-        threshold_list.append([counter, False])
-        
-# Reversing the list because all thresholds are at the start of the array.
-# If we reverse the list, we can check the first index and proceed only if 
-#  the roll is lower than it.
-    threshold_list.reverse()
+        threshold_list.append([counter, False])   
     
     return threshold_list
 
@@ -26,6 +24,8 @@ def reset_item_hits(threshold_list):
 
 import random
 import statistics
+import numpy
+import time
 
 print ('\r\n Melvor Idle drop probability calculator\r\n')
 print ('Starting the simulation with the parameters in the source file:')
@@ -56,29 +56,30 @@ hit_counter = 0
 success_roll_numbers = []
 
 for i in range(number_of_trials):
-    
     while True:
         rng_value = random.uniform(0, probability_base)
         roll_counter += 1
-        if rng_value <= threshold_list[0][0]:
-            for i in threshold_list:
-                if not i[1] and rng_value <= i[0] and rng_value + 1 > i[0]:
-                    i[1] = True
-                    hit_counter += 1
-                    break
-            
-            if hit_counter == len(threshold_list):
-                success_roll_numbers.append(roll_counter)
+        for i in threshold_list:
+            if not i[1] and rng_value < i[0]:
+                i[1] = True
+                hit_counter += 1
                 break
                 
-            if hit_counter > len(threshold_list):
-                print('Critial error, hit_counter is equal to', hit_counter, \
-                    'when the number of the desired items is', threshold_list.len(), \
-                    '. It should have always been less or equal.', 'Terminating the process.')
-                exit()
+        if hit_counter == len(threshold_list):
+            success_roll_numbers.append(roll_counter)
+            break
+            
+        if hit_counter > len(threshold_list):
+            print('Critial error, hit_counter is', hit_counter, \
+                'when the number of the desired items is', len(threshold_list), \
+                '. Hit_counter should have always been less or equal.', 'Terminating the process.')
+            exit()
     
     roll_counter = 0
     hit_counter = 0
     threshold_list = reset_item_hits(threshold_list)
 
-print('The average number of rolls to hit all desired items is', statistics.mean(success_roll_numbers),'.')
+print('The average number of rolls to hit all desired items is', statistics.mean(success_roll_numbers))
+print('The median is', statistics.median(success_roll_numbers))
+print('Q1:', numpy.percentile(success_roll_numbers, 25))
+print('Q3:', numpy.percentile(success_roll_numbers, 75))

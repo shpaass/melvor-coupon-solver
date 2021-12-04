@@ -65,9 +65,9 @@ if __name__ == '__main__':
     number_of_trials = 10000
 
     example_text = '''examples:
-    python droprates.py
-    python droprates.py -n 100000
-    python droprates.py -d 3 3 2 2 -p 723'''
+    python coupon-solver.py
+    python coupon-solver.py -n 100000
+    python coupon-solver.py -d 3 3 2 2 -p 723'''
 
     parser = argparse.ArgumentParser(epilog=example_text, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('-n', '--number-of-trials', default=number_of_trials, type=int)

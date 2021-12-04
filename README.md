@@ -1,4 +1,4 @@
-# Melvor Monte Carlo
+# Melvor Coupon Solver
 The file can be launched with or without command line arguments.
 
 Arguments:

@@ -38,7 +38,7 @@ def roll_all_items(wgt_list, total_wgt, number_of_trials=10000):
             roll_counter += 1
             prev_item_th = 0
             for item in threshold_list:
-                if not item[1] and rng_value < item[0] and rng_value > prev_item_th:
+                if not item[1] and rng_value < item[0] and rng_value >= prev_item_th:
                     item[1] = True
                     hit_counter += 1
                     break
@@ -75,9 +75,8 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--probability-base', default=probability_base, type=int)
     args = parser.parse_args()
 
-    print ('\r\n Melvor Idle drop probability calculator\r\n')
+    print ('\r\n Melvor Idle coupon solver\r\n')
     print ('Starting the simulation with the parameters in the source file:')
-
 
     # threshold_list = generate_thresholds(desired_items)
 
@@ -92,4 +91,4 @@ if __name__ == '__main__':
     print('The median is', statistics.median(success_roll_numbers))
     print('Q1:', numpy.percentile(success_roll_numbers, 25))
     print('Q3:', numpy.percentile(success_roll_numbers, 75))
-    print('Number of runs: ', len(success_roll_numbers))
+    print('95%:', numpy.percentile(success_roll_numbers, 95))

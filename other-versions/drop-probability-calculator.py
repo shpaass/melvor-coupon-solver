@@ -1,5 +1,5 @@
 # The version where I don't optimize the item check. Easier to follow what happens in the code.
-# The runtime of the current code is 10s compared to 3.5s of the optimized version.
+# The runtime slower than the main version, but this one can serve as a checker if needed.
 # Each roll goes linearly through the list of desired items until it fits or the list runs out.
 
 def generate_thresholds(desired_items):

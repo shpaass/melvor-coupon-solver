@@ -1,5 +1,4 @@
 # The version where I optimize the item checks.
-# It led to a different result. I don't know why.
 
 def generate_thresholds(desired_items):
     threshold_list = []

@@ -57,17 +57,25 @@ print ('Thresholds list:', threshold_list, '\r\n')
 rng_value = 0
 roll_counter = 0
 hit_counter = 0
+previous_threshold = 0
 success_roll_numbers = []
 
 for i in range(number_of_trials):
     while True:
+    
         rng_value = random.uniform(0, threshold_list[-1][0])
         roll_counter += 1
+        previous_threshold = 0
+        
         for i in threshold_list:
-            if not i[1] and rng_value < i[0]:
+        
+            if not i[1] and rng_value < i[0] and rng_value > previous_threshold:
                 i[1] = True
                 hit_counter += 1
                 break
+                
+            previous_threshold = i[0]
+            
         if hit_counter == len(threshold_list):
             success_roll_numbers.append(roll_counter)
             break
@@ -85,7 +93,7 @@ for i in range(number_of_trials):
 adjusted_success_roll_numbers = [i * probability_base * 1.0 / sum(desired_items) for i in success_roll_numbers]
 
 print('The average number of rolls to hit all desired items is', statistics.mean(adjusted_success_roll_numbers))
-print('The median and quartiles are wrong because we scale the result on a much larger interval, but they are here if you need them.')
+print('The median and quartiles are can be far by as much as', probability_base / sum(desired_items), 'because we stretch the small interval on a much larger one.')
 print('The median is', statistics.median(adjusted_success_roll_numbers))
 print('Q1:', numpy.percentile(adjusted_success_roll_numbers, 25))
 print('Q3:', numpy.percentile(adjusted_success_roll_numbers, 75))

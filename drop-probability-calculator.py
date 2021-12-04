@@ -52,17 +52,20 @@ print ('Thresholds list:', threshold_list, '\r\n')
 rng_value = 0
 roll_counter = 0
 hit_counter = 0
+previous_threshold = 0
 success_roll_numbers = []
 
 for i in range(number_of_trials):
     while True:
         rng_value = random.uniform(0, probability_base)
         roll_counter += 1
+        previous_threshold = 0
         for i in threshold_list:
-            if not i[1] and rng_value < i[0]:
+            if not i[1] and rng_value < i[0] and rng_value >= previous_threshold:
                 i[1] = True
                 hit_counter += 1
                 break
+            previous_threshold = i[0]
                 
         if hit_counter == len(threshold_list):
             success_roll_numbers.append(roll_counter)
@@ -82,3 +85,4 @@ print('The average number of rolls to hit all desired items is', statistics.mean
 print('The median is', statistics.median(success_roll_numbers))
 print('Q1:', numpy.percentile(success_roll_numbers, 25))
 print('Q3:', numpy.percentile(success_roll_numbers, 75))
+print('95%:', numpy.percentile(success_roll_numbers, 95))

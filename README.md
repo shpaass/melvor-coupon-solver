@@ -1,5 +1,6 @@
-# Melvor Coupon Solver
-The file can be launched with or without command line arguments.
+# Melvor Idle Coupon Solver
+This script calculates how many times you need to clear a dungeon to get all desired items at least once.  
+It can be launched with or without command line arguments.
 
 Arguments:
 

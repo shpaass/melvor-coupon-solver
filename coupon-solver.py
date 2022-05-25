@@ -61,7 +61,8 @@ if __name__ == '__main__':
     # Make the denominators of all desired items equal to probability_base before putting the numbers here.
     desired_items = [3,3,2,2]
 
-    # Number of trials to get the final average from.
+    # Number of times to acquire the whole set of desired items. 
+    # We get the final statistics from the array that will be as long as this number.
     number_of_trials = 10000
 
     example_text = '''examples:

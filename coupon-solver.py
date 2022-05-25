@@ -78,12 +78,9 @@ if __name__ == '__main__':
     print ('\r\n Melvor Idle coupon solver\r\n')
     print ('Starting the simulation with the parameters in the source file:')
 
-    # threshold_list = generate_thresholds(desired_items)
-
     print ('Probability base:', args.probability_base)
     print ('Desired items:', args.desired_items)
     print ('Number of trials:', args.number_of_trials, '\r\n')
-    # print ('Thresholds list:', threshold_list, '\r\n')
 
     success_roll_numbers = roll_all_items(args.desired_items, args.probability_base, args.number_of_trials)
 

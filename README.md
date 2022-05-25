@@ -8,7 +8,9 @@ Arguments:
 
 `-d, --desired-items` - The upper numbers of drop chances for the desired items. For instance, on wiki the chance can be 20/837. 20 is what you need to put here. Make the denominators of all desired items equal to probability_base before putting the numbers here.
 
-`-n, --number-of-trials` - Number of complete item sets to acquire. Default is 10000.
+`-n, --number-of-trials` - Number of complete item sets to acquire. Default is 10000. 
+
+In other words, the program gets the data about the desired items with `-p` and `-d`, and then acquires them `-n` times to get the final array on which the statistics are done.
 
 Examples of launches:
 ```

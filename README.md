@@ -19,4 +19,4 @@ python coupon-solver.py -n 100000
 python coupon-solver.py -d 3 3 2 2 -p 723
 ```
 
-Initial draft by vbion. Testing and wrapping by Benjamin#5349.
+Initial draft by me. Testing and wrapping by Benjamin#5349.

@@ -4,7 +4,7 @@ It can be launched with or without command line arguments.
 
 Arguments:
 
-`-p, --probability-base` - On [wiki](https://wiki.melvoridle.com/w/Main_Page), the chance is shown as a fraction and as a percentage. The bottom number of the fraction is what needs to be entered here.
+`-p, --probability-base` - On the [wiki](https://wiki.melvoridle.com/w/Main_Page), the chance is shown as a fraction and as a percentage. The bottom number of the fraction is what needs to be entered here.
 
 `-d, --desired-items` - The upper numbers of drop chances for the desired items. For instance, on wiki the chance can be 20/837. 20 is what you need to put here. Make the denominators of all desired items equal to `probability_base` before putting the numbers here.
 
